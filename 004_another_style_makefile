@@ -1,0 +1,13 @@
+# Description: Another Style of Makefile
+# Date: 2012-10-01 00:45
+# Author: Zhou Peng <peng.zhoupeng@gmail.com>
+
+objects = main.o kbd.o command.o display.o \
+          insert.o search.o files.o utils.o
+
+edit : $(objects)
+	cc -o edit $(objects)
+
+$(objects) : defs.h
+kbd.o command.o files.o : command.h
+display.o insert.o search.o files.o : buffer.h
